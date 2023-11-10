@@ -91,6 +91,10 @@
             font-weight: bold; /* Ketebalan font */
             font-style: italic; /* Gaya huruf miring */
           }
+        .audio-container {
+      text-align: center; /* Untuk menempatkan audio ke tengah */
+      margin: 5px; /* Untuk memberi jarak sekitar audio */
+    }
 
     </style>
 </head>
@@ -121,7 +125,8 @@
             { time: 48, text: "Hanya Dia" },
             { time: 57, text: "Dia Buatku Nyaman" },
             { time: 63, text: "Dalam Hangat Pelukan" },
-            { time: 67, text: "Dia Perasa, Yang Mengerti Yang Kurasa" },
+            { time: 67, text: "Dia Perasa," },
+            { time: 67, text: "Yang Mengerti Yang Kurasa" },
             { time: 73, text: "Hanya Dia" },
             { time: 88, text: "Kan Ku Arungi Tujuh Laut Samudra" },
             { time: 85, text: "Kan Ku Daki Pegunungan Himalaya" },
@@ -145,7 +150,6 @@
             { time: 215, text: "Gundah Gulana Hatiku Tlah Hancur Sirna" },
             { time: 221, text: "Janji Ku Tak Kan Ku Lepas Wahai Kau Bidadariku Dari Surga" },
             { time: 230, text: "Tuk Selamanya" },
-            { time: 246, text: "Made From The Deepest Heart, Jeppp." }
                 ];
 
         audio.addEventListener("timeupdate", function() {
