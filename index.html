@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feby Cahya Sapitri</title>
+    <style>
+        /* CSS untuk tampilan halaman */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url("ini.gif") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* CSS untuk gambar yang berputar */
+        #rotating-image {
+            width: 1000px;
+            height: 1000px;
+            animation: rotate 4s linear infinite; /* Animasi putar selama 4 detik dan berulang terus */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg); /* Gambar dimulai dari sudut 0 derajat */
+            }
+            to {
+                transform: rotate(360deg); /* Gambar berputar hingga 360 derajat (sudut penuh) */
+            }
+        }
+        /* CSS untuk elemen lirik */
+        #lyrics-container {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px; /* Jarak yang lebih besar dari atas */
+            margin-bottom: 40px;
+        }
+
+        #lyrics {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            font-style: italic;
+            font-display: swap;
+            font-size: 70px;
+            white-space: nowrap;
+        }
+
+        #special-message {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Latar belakang putih transparan */
+            padding: 20px;
+            width: 70%; /* Misalnya, lebar 70% dari kontainer */
+            margin: 0 auto;
+            color: black; /* Warna teks */
+        }
+
+        /* CSS untuk "love-container" */
+        #love-container {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        #love-container h1 {
+        color: black;
+        font-family: "Arial", sans-serif;
+        font-size: 24px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+}
+
+        #love-container img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%; /* Menampilkan gambar secara penuh */
+            height: auto;
+        }
+
+        h1 {
+            color: #fff; /* Warna teks */
+            text-align: center; /* Posisi teks di tengah */
+            margin-bottom: 50px; /* Jarak bawah dari elemen sebelumnya */
+            font-family: 'Helvetica Neue', sans-serif; /* Jenis font */
+            text-transform: uppercase; /* Huruf kapital */
+            letter-spacing: 2px; /* Jarak antar huruf */
+            font-size: 2em; /* Ukuran font */
+            font-weight: bold; /* Ketebalan font */
+            font-style: italic; /* Gaya huruf miring */
+          }
+
+    </style>
+</head>
+<body>
+      <div id="love-container">
+        <img id="rotating-image" src="kasetfix.png" alt="Gambar Putar">
+    </div>   
+    <h1>Nadhif Basalamah - Penjaga Hati</h1>
+    <div id="audio-container">
+        <audio id="myAudio" controls>
+            <source src="nadhif basalamah - penjaga hati.mp3" type="audio/mpeg">
+            Maaf, browser Anda tidak mendukung pemutar musik ini.
+        </audio>
+    </div>
+    <div id="lyrics-container">
+        <div id="lyrics">Mari Bernyanyi Bersama</div>
+    </div>
+   
+    <script>
+        var audio = document.getElementById("myAudio");
+        var lyricsContainer = document.getElementById("lyrics-container");
+        var lyricsText = document.getElementById("lyrics");
+
+        var lyrics = [
+            { time: 33, text: "Tak Sadar Ku Temukan" },
+            { time: 37, text: "Temukan Wanita Rupawan Yang Sadarkan" },
+            { time: 42, text: "Dia Seorang Tiada Lain Tiada Bukan" },
+            { time: 48, text: "Hanya Dia" },
+            { time: 57, text: "Dia Buatku Nyaman" },
+            { time: 63, text: "Dalam Hangat Pelukan" },
+            { time: 67, text: "Dia Perasa, Yang Mengerti Yang Kurasa" },
+            { time: 73, text: "Hanya Dia" },
+            { time: 88, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 85, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 92, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 97.3, text: "Oh Penjaga Hati" },
+            { time: 113, text: "Kau Dan Aku Sempurna" },
+            { time: 117.2, text: "Semoga Ada Cara Tuk Terus Bersama" },
+            { time: 122, text: "Selalu Ku Tunggu" },
+            { time: 125, text: "Tak Mau Berlalu" },
+            { time: 128.6, text: "Kau Dan Aku" },
+            { time: 135, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 140, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 147, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 152.3, text: "Oh Penjaga Hatiku" },
+            { time: 160, text: "Interlude" },
+            { time: 185, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 190, text: "Kan Ku Daki Pegunungan Himalaya" },
+            { time: 197, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
+            { time: 202.3, text: "Oh Penjaga Hatiku" },
+            { time: 209, text: "Karna Bersamamu Semua Terasa Indah" },
+            { time: 215, text: "Gundah Gulana Hatiku Tlah Hancur Sirna" },
+            { time: 221, text: "Janji Ku Tak Kan Ku Lepas Wahai Kau Bidadariku Dari Surga" },
+            { time: 230, text: "Tuk Selamanya" },
+            { time: 246, text: "Made From The Deepest Heart, Jeppp." }
+                ];
+
+        audio.addEventListener("timeupdate", function() {
+            for (var i = 0; i < lyrics.length; i++) {
+                if (audio.currentTime > lyrics[i].time) {
+                    lyricsText.innerHTML = lyrics[i].text;
+                    var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time;
+                    lyricsText.style.animation = `moveText ${animationDuration}s linear`;
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
