@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Feby Cahya Sapitri</title>
     <style>
-        /* CSS untuk tampilan halaman */
+        /* Gaya umum untuk semua layar */
         body {
             margin: 0;
             padding: 0;
@@ -15,29 +16,65 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #fff;
+            text-align: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.90em;
+            font-weight: bold;
+            font-style: italic;
         }
-        
-        /* CSS untuk gambar yang berputar */
+
+        /* Keyframes untuk animasi rotasi */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Gaya untuk semua layar */
         #rotating-image {
             width: 1000px;
             height: 1000px;
-            animation: rotate 4s linear infinite; /* Animasi putar selama 4 detik dan berulang terus */
+            animation: rotate 4s linear infinite;
+            max-width: 100%; /* Mencegah gambar keluar dari layar kecil */
         }
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg); /* Gambar dimulai dari sudut 0 derajat */
+        /* Gaya untuk layar kecil */
+        @media screen and (max-width: 600px) {
+            #rotating-image {
+                width: 50%;
+                max-width: 20em;
+                height: auto;
             }
-            to {
-                transform: rotate(360deg); /* Gambar berputar hingga 360 derajat (sudut penuh) */
-            }
+
+            /* ... (gaya untuk layar kecil) */
         }
-        /* CSS untuk elemen lirik */
+
+        /* Gaya untuk layar besar */
+        #love-container img {
+            display: block;
+            margin: 20px auto; /* Menambahkan margin agar tidak terlalu dekat dengan elemen lain */
+            max-width: 50%;
+            height: auto;
+        }
+
+        .audio-container {
+            text-align: center;
+            margin: 20px; /* Menambahkan margin agar tidak terlalu dekat dengan elemen lain */
+        }
+
+        /* Gaya untuk lirik */
         #lyrics-container {
             width: 100%;
             text-align: center;
-            margin-top: 60px; /* Jarak yang lebih besar dari atas */
-            margin-bottom: 40px;
+            margin-top: 20px; /* Menambahkan margin di bagian atas lirik */
+            margin-bottom: 20px; /* Menambahkan margin di bagian bawah lirik */
+            padding: 20px; /* Menambahkan padding untuk memberikan ruang ekstra di sekitar lirik */
         }
 
         #lyrics {
@@ -45,78 +82,30 @@
             color: white;
             font-style: italic;
             font-display: swap;
-            font-size: 300%;
+            font-size: 2vw;
             white-space: nowrap;
+            margin-top: 2vw;
+            margin-bottom: 1vw;
         }
-
-        #special-message {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7); /* Latar belakang putih transparan */
-            padding: 20px;
-            width: 70%; /* Misalnya, lebar 70% dari kontainer */
-            margin: 0 auto;
-            color: black; /* Warna teks */
-        }
-
-        /* CSS untuk "love-container" */
-        #love-container {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-        #love-container h1 {
-        color: black;
-        font-family: "Arial", sans-serif;
-        font-size: 24px;
-        margin-top: 40px;
-        margin-bottom: 20px;
-}
-
-        #love-container img {
-            display: block;
-            margin: 0 auto;
-            max-width: 50%; /* Menampilkan gambar secara penuh */
-            height: auto;
-        }
-
-        h1 {
-            color: #fff; /* Warna teks */
-            text-align: center; /* Posisi teks di tengah */
-            margin-bottom: 50px; /* Jarak bawah dari elemen sebelumnya */
-            font-family: 'Helvetica Neue', sans-serif; /* Jenis font */
-            text-transform: uppercase; /* Huruf kapital */
-            letter-spacing: 2px; /* Jarak antar huruf */
-            font-size: 2em; /* Ukuran font */
-            font-weight: bold; /* Ketebalan font */
-            font-style: italic; /* Gaya huruf miring */
-          }
-        .audio-container {
-      text-align: center; /* Untuk menempatkan audio ke tengah */
-      margin: 5px; /* Untuk memberi jarak sekitar audio */
-    }
-
     </style>
 </head>
 <body>
-      <div id="love-container">
+    <h4>Nadhif Basalamah - Penjaga Hati</h4>
+    <div id="love-container">
         <img id="rotating-image" src="kasetfix.png" alt="Gambar Putar">
-    </div>   
-    <h1>Nadhif Basalamah - Penjaga Hati</h1>
-    <div id="audio-container">
-        <audio id="myAudio" controls>
-            <source src="nadhif basalamah - penjaga hati.mp3" type="audio/mpeg">
-        </audio>
     </div>
     <div id="lyrics-container">
         <div id="lyrics">Mari Bernyanyi Bersama</div>
     </div>
-   
+    <div id="audio-container" class="audio-container">
+        <audio id="myAudio" controls>
+            <source src="nadhif basalamah - penjaga hati.mp3" type="audio/mpeg">
+        </audio>
+    </div>
     <script>
         var audio = document.getElementById("myAudio");
         var lyricsContainer = document.getElementById("lyrics-container");
         var lyricsText = document.getElementById("lyrics");
-
         var lyrics = [
             { time: 33, text: "Tak Sadar Ku Temukan" },
             { time: 37, text: "Temukan Wanita Rupawan Yang Sadarkan" },
@@ -124,10 +113,9 @@
             { time: 48, text: "Hanya Dia" },
             { time: 57, text: "Dia Buatku Nyaman" },
             { time: 63, text: "Dalam Hangat Pelukan" },
-            { time: 67, text: "Dia Perasa," },
-            { time: 67, text: "Yang Mengerti Yang Kurasa" },
+            { time: 67, text: "Dia Perasa, Yang Mengerti Yang Kurasa" },
             { time: 73, text: "Hanya Dia" },
-            { time: 88, text: "Kan Ku Arungi Tujuh Laut Samudra" },
+            { time: 80, text: "Kan Ku Arungi Tujuh Laut Samudra" },
             { time: 85, text: "Kan Ku Daki Pegunungan Himalaya" },
             { time: 92, text: "Apapun Kan Ku Lakukan Tuk Dirimu Sayang" },
             { time: 97.3, text: "Oh Penjaga Hati" },
@@ -149,18 +137,18 @@
             { time: 215, text: "Gundah Gulana Hatiku Tlah Hancur Sirna" },
             { time: 221, text: "Janji Ku Tak Kan Ku Lepas Wahai Kau Bidadariku Dari Surga" },
             { time: 230, text: "Tuk Selamanya" },
+            { time: 246, text: "Made From The Deepest Heart, Jeppp." }
                 ];
 
-        audio.addEventListener("timeupdate", function() {
-            for (var i = 0; i < lyrics.length; i++) {
-                if (audio.currentTime > lyrics[i].time) {
-                    lyricsText.innerHTML = lyrics[i].text;
-                    var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time;
-                    lyricsText.style.animation = `moveText ${animationDuration}s linear`;
-                }
-            }
-        });
-    </script>
-    
-</body>
-</html>
+                audio.addEventListener("timeupdate", function() {
+                    for (var i = 0; i < lyrics.length; i++) {
+                        if (audio.currentTime > lyrics[i].time) {
+                            lyricsText.innerHTML = lyrics[i].text;
+                            var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time;
+                            lyricsText.style.animation = `moveText ${animationDuration}s linear`;
+                        }
+                    }
+                });
+            </script>
+        </body>
+        </html>
